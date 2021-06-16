@@ -1,16 +1,27 @@
 import React from 'react';
-//import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 import NavBar from './components/NavBar/NavBar.js';
+import Search from './pages/Search.js';
+import Saved from './pages/Saved.js';
+
 import Header from './components/Header/Header.js';
-import Books from './components/Books/Books.js';
+
+//import Books from './components/Books/Books.js'; <Books />
 const App = () => {
     return (
-    <div className="App">
-            <Header />
+    <Router>
+      <div>
             <NavBar />
-            <Books />
-    </div>
+            <Header />
+            <Link>  
+            <Route exact path="/" component={Search}/>
+            <Route exact path="/search" component={Search}/>
+            <Route exact path="/saved" component={Saved}/>
+            </Link>
+      </div>
+    </Router>
+
   );
 }
 
